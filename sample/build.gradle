@@ -1,11 +1,27 @@
-apply plugin: 'com.android.application'
+plugins { id 'com.android.application' }
 
 android {
-    compileSdkVersion 29
+    namespace 'com.davemorrissey.labs.subscaleview.test'
+    signingConfigs {
+        debug {
+            storePassword '000000'
+            keyAlias '000000'
+            keyPassword '000000'
+            storeFile file('./common-60.keystore')
+        }
+        release {
+            storePassword '000000'
+            keyAlias '000000'
+            keyPassword '000000'
+            storeFile file('./common-60.keystore')
+        }
+    }
+    compileSdkVersion 34
     defaultConfig {
         minSdkVersion 17
-        targetSdkVersion 27
+        targetSdkVersion 34
         applicationId "com.davemorrissey.labs.subscaleview.test"
+        signingConfig signingConfigs.debug
     }
 
     sourceSets {

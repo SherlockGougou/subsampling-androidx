@@ -1,7 +1,31 @@
 package com.davemorrissey.labs.subscaleview.test.configuration;
 
+import static com.davemorrissey.labs.subscaleview.test.R.layout.pages_activity;
+import static com.davemorrissey.labs.subscaleview.test.R.string.configuration_p10_subtitle;
+import static com.davemorrissey.labs.subscaleview.test.R.string.configuration_p10_text;
+import static com.davemorrissey.labs.subscaleview.test.R.string.configuration_p1_subtitle;
+import static com.davemorrissey.labs.subscaleview.test.R.string.configuration_p1_text;
+import static com.davemorrissey.labs.subscaleview.test.R.string.configuration_p2_subtitle;
+import static com.davemorrissey.labs.subscaleview.test.R.string.configuration_p2_text;
+import static com.davemorrissey.labs.subscaleview.test.R.string.configuration_p3_subtitle;
+import static com.davemorrissey.labs.subscaleview.test.R.string.configuration_p3_text;
+import static com.davemorrissey.labs.subscaleview.test.R.string.configuration_p4_subtitle;
+import static com.davemorrissey.labs.subscaleview.test.R.string.configuration_p4_text;
+import static com.davemorrissey.labs.subscaleview.test.R.string.configuration_p5_subtitle;
+import static com.davemorrissey.labs.subscaleview.test.R.string.configuration_p5_text;
+import static com.davemorrissey.labs.subscaleview.test.R.string.configuration_p6_subtitle;
+import static com.davemorrissey.labs.subscaleview.test.R.string.configuration_p6_text;
+import static com.davemorrissey.labs.subscaleview.test.R.string.configuration_p7_subtitle;
+import static com.davemorrissey.labs.subscaleview.test.R.string.configuration_p7_text;
+import static com.davemorrissey.labs.subscaleview.test.R.string.configuration_p8_subtitle;
+import static com.davemorrissey.labs.subscaleview.test.R.string.configuration_p8_text;
+import static com.davemorrissey.labs.subscaleview.test.R.string.configuration_p9_subtitle;
+import static com.davemorrissey.labs.subscaleview.test.R.string.configuration_p9_text;
+import static com.davemorrissey.labs.subscaleview.test.R.string.configuration_title;
+
 import android.graphics.PointF;
 import android.os.Bundle;
+
 import androidx.annotation.Nullable;
 
 import com.davemorrissey.labs.subscaleview.ImageSource;
@@ -11,9 +35,6 @@ import com.davemorrissey.labs.subscaleview.test.Page;
 import com.davemorrissey.labs.subscaleview.test.R.id;
 
 import java.util.Arrays;
-
-import static com.davemorrissey.labs.subscaleview.test.R.string.*;
-import static com.davemorrissey.labs.subscaleview.test.R.layout.*;
 
 public class ConfigurationActivity extends AbstractPagesActivity {
 

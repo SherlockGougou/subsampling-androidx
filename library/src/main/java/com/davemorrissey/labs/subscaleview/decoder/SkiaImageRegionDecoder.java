@@ -5,13 +5,18 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
-import android.graphics.*;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.BitmapRegionDecoder;
+import android.graphics.Point;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Build;
+import android.text.TextUtils;
+
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import android.text.TextUtils;
 
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 
@@ -26,7 +31,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * using Android's {@link android.graphics.BitmapRegionDecoder}, based on the Skia library. This
  * works well in most circumstances and has reasonable performance due to the cached decoder instance,
  * however it has some problems with grayscale, indexed and CMYK images.
- *
+ * <p>
  * A {@link ReadWriteLock} is used to delegate responsibility for multi threading behaviour to the
  * {@link BitmapRegionDecoder} instance on SDK &gt;= 21, whilst allowing this class to block until no
  * tiles are being loaded before recycling the decoder. In practice, {@link BitmapRegionDecoder} is
@@ -34,14 +39,12 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  */
 public class SkiaImageRegionDecoder implements ImageRegionDecoder {
 
-    private BitmapRegionDecoder decoder;
-    private final ReadWriteLock decoderLock = new ReentrantReadWriteLock(true);
-
     private static final String FILE_PREFIX = "file://";
     private static final String ASSET_PREFIX = FILE_PREFIX + "/android_asset/";
     private static final String RESOURCE_PREFIX = ContentResolver.SCHEME_ANDROID_RESOURCE + "://";
-
+    private final ReadWriteLock decoderLock = new ReentrantReadWriteLock(true);
     private final Bitmap.Config bitmapConfig;
+    private BitmapRegionDecoder decoder;
 
     @Keep
     @SuppressWarnings("unused")
@@ -105,7 +108,9 @@ public class SkiaImageRegionDecoder implements ImageRegionDecoder {
                 decoder = BitmapRegionDecoder.newInstance(inputStream, false);
             } finally {
                 if (inputStream != null) {
-                    try { inputStream.close(); } catch (Exception e) { /* Ignore */ }
+                    try {
+                        inputStream.close();
+                    } catch (Exception e) { /* Ignore */ }
                 }
             }
         }

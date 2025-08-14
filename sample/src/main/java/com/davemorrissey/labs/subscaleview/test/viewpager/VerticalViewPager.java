@@ -1,11 +1,12 @@
 package com.davemorrissey.labs.subscaleview.test.viewpager;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.viewpager.widget.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.viewpager.widget.ViewPager;
 
 /**
  * From http://stackoverflow.com/a/22797619/2719186
@@ -27,6 +28,27 @@ public class VerticalViewPager extends ViewPager {
         setOverScrollMode(OVER_SCROLL_NEVER);
     }
 
+    private MotionEvent swapXY(MotionEvent ev) {
+        float width = getWidth();
+        float height = getHeight();
+        float newX = (ev.getY() / height) * width;
+        float newY = (ev.getX() / width) * height;
+        ev.setLocation(newX, newY);
+        return ev;
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        boolean intercepted = super.onInterceptTouchEvent(swapXY(ev));
+        swapXY(ev);
+        return intercepted;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent ev) {
+        return super.onTouchEvent(swapXY(ev));
+    }
+
     private class VerticalPageTransformer implements ViewPager.PageTransformer {
 
         @Override
@@ -42,27 +64,6 @@ public class VerticalViewPager extends ViewPager {
                 view.setAlpha(0);
             }
         }
-    }
-
-    private MotionEvent swapXY(MotionEvent ev) {
-        float width = getWidth();
-        float height = getHeight();
-        float newX = (ev.getY() / height) * width;
-        float newY = (ev.getX() / width) * height;
-        ev.setLocation(newX, newY);
-        return ev;
-    }
-
-    @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev){
-        boolean intercepted = super.onInterceptTouchEvent(swapXY(ev));
-        swapXY(ev);
-        return intercepted;
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent ev) {
-        return super.onTouchEvent(swapXY(ev));
     }
 
 }

@@ -1,16 +1,5 @@
 package com.davemorrissey.labs.subscaleview.test.extension;
 
-import androidx.fragment.app.Fragment;
-import android.util.Log;
-
-import com.davemorrissey.labs.subscaleview.test.AbstractFragmentsActivity;
-import com.davemorrissey.labs.subscaleview.test.Page;
-import com.davemorrissey.labs.subscaleview.test.R.id;
-import com.davemorrissey.labs.subscaleview.test.imagedisplay.ImageDisplayActivity;
-
-import java.util.Arrays;
-import java.util.List;
-
 import static com.davemorrissey.labs.subscaleview.test.R.layout.fragments_activity;
 import static com.davemorrissey.labs.subscaleview.test.R.string.extension_p1_subtitle;
 import static com.davemorrissey.labs.subscaleview.test.R.string.extension_p1_text;
@@ -20,6 +9,18 @@ import static com.davemorrissey.labs.subscaleview.test.R.string.extension_p3_sub
 import static com.davemorrissey.labs.subscaleview.test.R.string.extension_p3_text;
 import static com.davemorrissey.labs.subscaleview.test.R.string.extension_title;
 
+import android.util.Log;
+
+import androidx.fragment.app.Fragment;
+
+import com.davemorrissey.labs.subscaleview.test.AbstractFragmentsActivity;
+import com.davemorrissey.labs.subscaleview.test.Page;
+import com.davemorrissey.labs.subscaleview.test.R.id;
+import com.davemorrissey.labs.subscaleview.test.imagedisplay.ImageDisplayActivity;
+
+import java.util.Arrays;
+import java.util.List;
+
 public class ExtensionActivity extends AbstractFragmentsActivity {
 
     private static final List<Class<? extends Fragment>> FRAGMENTS = Arrays.asList(
@@ -27,7 +28,7 @@ public class ExtensionActivity extends AbstractFragmentsActivity {
             ExtensionCircleFragment.class,
             ExtensionFreehandFragment.class
     );
-    
+
     public ExtensionActivity() {
         super(extension_title, fragments_activity, Arrays.asList(
                 new Page(extension_p1_subtitle, extension_p1_text),

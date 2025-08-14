@@ -1,5 +1,14 @@
 package com.davemorrissey.labs.subscaleview.test.eventhandling;
 
+import static com.davemorrissey.labs.subscaleview.test.R.layout.pages_activity;
+import static com.davemorrissey.labs.subscaleview.test.R.string.event_p1_subtitle;
+import static com.davemorrissey.labs.subscaleview.test.R.string.event_p1_text;
+import static com.davemorrissey.labs.subscaleview.test.R.string.event_p2_subtitle;
+import static com.davemorrissey.labs.subscaleview.test.R.string.event_p2_text;
+import static com.davemorrissey.labs.subscaleview.test.R.string.event_p3_subtitle;
+import static com.davemorrissey.labs.subscaleview.test.R.string.event_p3_text;
+import static com.davemorrissey.labs.subscaleview.test.R.string.event_title;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -11,9 +20,6 @@ import com.davemorrissey.labs.subscaleview.test.Page;
 import com.davemorrissey.labs.subscaleview.test.R.id;
 
 import java.util.Arrays;
-
-import static com.davemorrissey.labs.subscaleview.test.R.layout.*;
-import static com.davemorrissey.labs.subscaleview.test.R.string.*;
 
 public class EventHandlingActivity extends AbstractPagesActivity {
 
@@ -31,10 +37,17 @@ public class EventHandlingActivity extends AbstractPagesActivity {
         SubsamplingScaleImageView imageView = findViewById(id.imageView);
         imageView.setImage(ImageSource.asset("sanmartino.jpg"));
         imageView.setOnClickListener(new View.OnClickListener() {
-            @Override public void onClick(View v) { Toast.makeText(v.getContext(), "Clicked", Toast.LENGTH_SHORT).show(); }
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "Clicked", Toast.LENGTH_SHORT).show();
+            }
         });
         imageView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override public boolean onLongClick(View v) { Toast.makeText(v.getContext(), "Long clicked", Toast.LENGTH_SHORT).show(); return true; }
+            @Override
+            public boolean onLongClick(View v) {
+                Toast.makeText(v.getContext(), "Long clicked", Toast.LENGTH_SHORT).show();
+                return true;
+            }
         });
     }
 

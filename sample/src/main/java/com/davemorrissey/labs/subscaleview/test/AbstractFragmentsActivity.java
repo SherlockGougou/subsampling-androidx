@@ -2,29 +2,28 @@ package com.davemorrissey.labs.subscaleview.test;
 
 import android.app.ActionBar;
 import android.os.Bundle;
+import android.view.MenuItem;
+
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
-import android.view.MenuItem;
 
 import java.util.List;
 
 public abstract class AbstractFragmentsActivity extends FragmentActivity {
 
     private static final String BUNDLE_PAGE = "page";
-
-    private int page;
-
     private final int title;
     private final int layout;
     private final List<Page> notes;
-
-    protected abstract void onPageChanged(int page);
+    private int page;
 
     protected AbstractFragmentsActivity(int title, int layout, List<Page> notes) {
         this.title = title;
         this.layout = layout;
         this.notes = notes;
     }
+
+    protected abstract void onPageChanged(int page);
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

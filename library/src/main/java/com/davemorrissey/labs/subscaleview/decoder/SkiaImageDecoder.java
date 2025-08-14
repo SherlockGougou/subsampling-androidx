@@ -7,10 +7,11 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.text.TextUtils;
+
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import android.text.TextUtils;
 
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 
@@ -93,7 +94,9 @@ public class SkiaImageDecoder implements ImageDecoder {
                 bitmap = BitmapFactory.decodeStream(inputStream, null, options);
             } finally {
                 if (inputStream != null) {
-                    try { inputStream.close(); } catch (Exception e) { /* Ignore */ }
+                    try {
+                        inputStream.close();
+                    } catch (Exception e) { /* Ignore */ }
                 }
             }
         }

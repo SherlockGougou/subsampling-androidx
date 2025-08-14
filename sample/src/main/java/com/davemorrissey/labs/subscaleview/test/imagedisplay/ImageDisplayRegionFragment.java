@@ -3,11 +3,12 @@ package com.davemorrissey.labs.subscaleview.test.imagedisplay;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
@@ -29,14 +30,20 @@ public class ImageDisplayRegionFragment extends Fragment {
         imageView.setRegionDecoderFactory(new CompatDecoderFactory<ImageRegionDecoder>(SkiaImageRegionDecoder.class, Bitmap.Config.ARGB_8888));
         imageView.setOrientation(SubsamplingScaleImageView.ORIENTATION_90);
         imageView.setImage(ImageSource.asset("card.png").region(new Rect(5200, 651, 8200, 3250)));
-        final ImageDisplayActivity activity = (ImageDisplayActivity)getActivity();
+        final ImageDisplayActivity activity = (ImageDisplayActivity) getActivity();
         if (activity != null) {
             rootView.findViewById(id.previous).setOnClickListener(new View.OnClickListener() {
-                @Override public void onClick(View v) { activity.previous(); }
+                @Override
+                public void onClick(View v) {
+                    activity.previous();
+                }
             });
         }
         rootView.findViewById(id.rotate).setOnClickListener(new View.OnClickListener() {
-            @Override public void onClick(View v) { imageView.setOrientation((imageView.getOrientation() + 90) % 360); }
+            @Override
+            public void onClick(View v) {
+                imageView.setOrientation((imageView.getOrientation() + 90) % 360);
+            }
         });
         return rootView;
     }

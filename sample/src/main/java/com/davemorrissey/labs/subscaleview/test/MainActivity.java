@@ -40,16 +40,25 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case id.basicFeatures: startActivity(BasicFeaturesActivity.class); break;
-            case id.imageDisplay: startActivity(ImageDisplayActivity.class); break;
-            case id.eventHandling: startActivity(EventHandlingActivity.class); break;
-            case id.advancedEventHandling: startActivity(AdvancedEventHandlingActivity.class); break;
-            case id.viewPagerGalleries: startActivity(ViewPagerActivity.class); break;
-            case id.animation: startActivity(AnimationActivity.class); break;
-            case id.extension: startActivity(ExtensionActivity.class); break;
-            case id.configuration: startActivity(ConfigurationActivity.class); break;
-            case id.github: openGitHub(); break;
+        int viewId = view.getId();
+        if (viewId == id.basicFeatures) {
+            startActivity(BasicFeaturesActivity.class);
+        } else if (viewId == id.imageDisplay) {
+            startActivity(ImageDisplayActivity.class);
+        } else if (viewId == id.eventHandling) {
+            startActivity(EventHandlingActivity.class);
+        } else if (viewId == id.advancedEventHandling) {
+            startActivity(AdvancedEventHandlingActivity.class);
+        } else if (viewId == id.viewPagerGalleries) {
+            startActivity(ViewPagerActivity.class);
+        } else if (viewId == id.animation) {
+            startActivity(AnimationActivity.class);
+        } else if (viewId == id.extension) {
+            startActivity(ExtensionActivity.class);
+        } else if (viewId == id.configuration) {
+            startActivity(ConfigurationActivity.class);
+        } else if (viewId == id.github) {
+            openGitHub();
         }
     }
 

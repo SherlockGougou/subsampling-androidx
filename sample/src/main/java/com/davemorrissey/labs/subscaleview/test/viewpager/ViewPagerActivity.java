@@ -1,18 +1,5 @@
 package com.davemorrissey.labs.subscaleview.test.viewpager;
 
-import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-import android.view.View;
-
-import com.davemorrissey.labs.subscaleview.test.AbstractPagesActivity;
-import com.davemorrissey.labs.subscaleview.test.Page;
-import com.davemorrissey.labs.subscaleview.test.R;
-
-import java.util.Arrays;
-
 import static com.davemorrissey.labs.subscaleview.test.R.layout.view_pager;
 import static com.davemorrissey.labs.subscaleview.test.R.string.pager_p1_subtitle;
 import static com.davemorrissey.labs.subscaleview.test.R.string.pager_p1_text;
@@ -20,9 +7,23 @@ import static com.davemorrissey.labs.subscaleview.test.R.string.pager_p2_subtitl
 import static com.davemorrissey.labs.subscaleview.test.R.string.pager_p2_text;
 import static com.davemorrissey.labs.subscaleview.test.R.string.pager_title;
 
+import android.os.Bundle;
+import android.view.View;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
+import com.davemorrissey.labs.subscaleview.test.AbstractPagesActivity;
+import com.davemorrissey.labs.subscaleview.test.Page;
+import com.davemorrissey.labs.subscaleview.test.R;
+
+import java.util.Arrays;
+
 public class ViewPagerActivity extends AbstractPagesActivity {
 
-    private static final String[] IMAGES = { "sanmartino.jpg", "swissroad.jpg" };
+    private static final String[] IMAGES = {"sanmartino.jpg", "swissroad.jpg"};
 
     public ViewPagerActivity() {
         super(pager_title, view_pager, Arrays.asList(
