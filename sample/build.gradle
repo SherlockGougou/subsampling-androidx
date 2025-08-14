@@ -2,6 +2,8 @@ plugins { id 'com.android.application' }
 
 android {
     namespace 'com.davemorrissey.labs.subscaleview.test'
+    compileSdkVersion 34
+
     signingConfigs {
         debug {
             storePassword '000000'
@@ -16,7 +18,7 @@ android {
             storeFile file('./common-60.keystore')
         }
     }
-    compileSdkVersion 34
+
     defaultConfig {
         minSdkVersion 17
         targetSdkVersion 34
@@ -29,9 +31,14 @@ android {
             assets.srcDirs = ['assets']
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
 }
 
 dependencies {
-    implementation project(':library')
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation project(':library')
 }
